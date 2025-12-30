@@ -1,36 +1,56 @@
-# EJERCICIO DE PRACTICA
+# React HR Companies Admin
 
-Una startup necesita una pequeña herramienta interna para que su equipo de RRHH pueda **registrar, editar y organizar las empresas clientes** con las que trabajan.
+Pequeño panel administrativo para registrar, editar y organizar empresas clientes de una startup.
 
-Tu misión es construir el primer prototipo funcional de esta herramienta usando **React + React Hook Form**.
+Este proyecto es un **prototipo funcional** construido con **React + React Hook Form**, pensado como herramienta interna para equipos de RRHH.
 
-No existe backend, pero el prototipo debe comportarse como si fuera un panel real de administración.
+> No existe backend. Toda la información se maneja en memoria simulando un panel administrativo real.
 
-### Modelo de empresa
+---
 
-Cada empresa debe manejar la siguiente información:
+## Objetivo
+
+Construir una aplicación que permita gestionar empresas clientes con un formulario validado y una vista de listado dinámica.
+
+---
+
+## Modelo de Empresa
+
+Cada empresa debe contener la siguiente información:
 
 | Campo | Tipo |
-| --- | --- |
-| name | string |
-| country | string |
-| employees | number |
-| category | `"Startup"` | `"SME"` | `"Enterprise"` |
+|------|------|
+| `name` | string |
+| `country` | string |
+| `employees` | number |
+| `category` | `"Startup"` \| `"SME"` \| `"Enterprise"` |
 
-OJO: El campo category debe ser un <select> con estas 3 opciones.
+> ⚠️ El campo **category debe ser un `<select>`** con estas tres opciones.
 
-### Funcionalidades obligatorias
+---
 
-- Registrar nuevas empresas
+## Funcionalidades Obligatorias
+
+- Crear nuevas empresas
 - Editar empresas existentes
-- Validar todos los campos usando React Hook Form
-- Mostrar errores debajo de cada input
+- Validar todos los campos usando **React Hook Form**
+- Mostrar mensajes de error debajo de cada input
 - Limpiar el formulario al guardar
-- Cambiar el botón `Create / Update` según el modo
+- Cambiar el botón **Create / Update** según el modo
 - Mostrar listado de empresas creadas
-- **No usar `querySelector` ni manipular el DOM**
+- ❌ **No usar `querySelector` ni manipulación directa del DOM**
 
-### Bonus
+---
+
+## Bonus
 
 - Filtrar empresas por categoría
-- Mostrar cuántas empresas hay por cada categoría
+- Mostrar el número de empresas por cada categoría
+
+---
+
+## Stack Tecnológico
+
+- React
+- React Hook Form
+- JavaScript (ES6+)
