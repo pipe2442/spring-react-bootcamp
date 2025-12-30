@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useState } from "react";
+import FormularioCursos from "./components/FormularioCursos";
+import FormularioCursosRhf from "./components/FormularioCursosRhf";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cursos, setCursos] = useState([
+    { titulo: "Bootcamp react", nivel: "Intermedio", duracion: "25h" },
+    { titulo: "Bootcamp Spring", nivel: "Intermedio", duracion: "45h" },
+    { titulo: "Docker", nivel: "Intermedio", duracion: "5h" },
+  ]);
+
+  const [cursoEditado, setCursoEditado] = useState(null);
+
+  const handleEdit = (curso, index) => {
+    setCursoEditado({ ...curso, index });
+    console.log(cursoEditado);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h2>Cursos:</h2>
+      <ul>
+        {cursos.map((curso, index) => (
+          <li key={index}>
+            <p>{curso.titulo}</p>
+            <p>{curso.nivel}</p>
+            <p>{curso.duracion}</p>
+
+            <button onClick={() => handleEdit(curso, index)}>Editar</button>
+          </li>
+        ))}
+      </ul>
+
+      {/* <FormularioCursos
+        cursos={cursos}
+        setCursos={setCursos}
+        cursoEditado={cursoEditado}
+        setCursoEditado={setCursoEditado}
+      /> */}
+
+      <FormularioCursosRhf
+        cursos={cursos}
+        setCursos={setCursos}
+        cursoEditado={cursoEditado}
+        setCursoEditado={setCursoEditado}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
